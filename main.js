@@ -61,6 +61,11 @@ window.EcomPassport = (function () {
     }
   }
 
+  var getSession = function () {
+    // get customer info and authentication session
+    ajaxRequest('GET', '/token.json', null, false, sessionResponse)
+  }
+
   return {
     'init': function (StoreId, Lang) {
       // set store ID and language
@@ -87,7 +92,9 @@ window.EcomPassport = (function () {
       var getCustomerInfo = function (fromCallback) {
         // run after login
         clearInterval(popupWatch)
-        console.log('logged?')
+        // console.log('logged?')
+        // store customer public info and authentication session
+        getSession()
       }
 
       // public callback function
@@ -104,9 +111,6 @@ window.EcomPassport = (function () {
       }, 400)
     },
 
-    'getSession': function () {
-      // get customer info and authentication session
-      ajaxRequest('GET', '/token.json', null, false, sessionResponse)
-    }
+    getSession
   }
 }())
