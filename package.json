@@ -1,0 +1,29 @@
+{
+  "name": "ecomplus-passport-client",
+  "version": "0.0.1",
+  "description": "JS client script to use E-Com Plus Passport on storefront",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ecomclub/ecomplus-passport-client.git"
+  },
+  "keywords": [
+    "ecomplus",
+    "storefront",
+    "passport",
+    "login",
+    "oauth",
+    "frontend",
+    "JS",
+    "JavaScript"
+  ],
+  "author": "E-Com Club",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ecomclub/ecomplus-passport-client/issues"
+  },
+  "homepage": "https://github.com/ecomclub/ecomplus-passport-client#readme"
+}
