@@ -25,5 +25,12 @@
   "bugs": {
     "url": "https://github.com/ecomclub/ecomplus-passport-client/issues"
   },
-  "homepage": "https://github.com/ecomclub/ecomplus-passport-client#readme"
+  "homepage": "https://passport.e-com.plus",
+  "standard": {
+    "globals": [
+      "XMLHttpRequest",
+      "XDomainRequest",
+      "window"
+    ]
+  }
 }
