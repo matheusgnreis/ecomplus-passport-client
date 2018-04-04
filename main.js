@@ -6,6 +6,7 @@ window.EcomPassport = (function () {
   // customer session
   // public profile and authentication
   var session = {}
+  var cookieName = '_passport_session='
 
   var makeId = function () {
     // generate random 32 bytes string
@@ -58,6 +59,9 @@ window.EcomPassport = (function () {
     if (typeof body === 'object' && body !== null) {
       // set global
       session = body
+      // keep session JSON on cookie
+      // by default, the cookie is deleted when the browser is closed
+      document.cookie = cookieName + JSON.stringify(session)
     }
   }
 
@@ -71,6 +75,33 @@ window.EcomPassport = (function () {
       // set store ID and language
       storeId = StoreId
       lang = Lang
+
+      // try to get session from cookie
+      var decodedCookie = decodeURIComponent(document.cookie)
+      var ca = decodedCookie.split(';')
+      for (var i = 0; i < ca.length; i++) {
+        var c = ca[i]
+        while (c.charAt(0) === ' ') {
+          c = c.substring(1)
+        }
+        if (c.indexOf(cookieName) === 0) {
+          // found cookie
+          var sessionJson = c.substring(cookieName.length, c.length)
+          try {
+            session = JSON.parse(sessionJson)
+            if (typeof session === 'object' && session !== null && !Array.isArray(session)) {
+              // ok
+              return
+            }
+          } catch (e) {
+            // invalid cookie value
+          }
+
+          // reset
+          session = {}
+          return
+        }
+      }
     },
 
     // return current customer session
