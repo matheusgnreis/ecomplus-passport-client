@@ -142,6 +142,6 @@ window.EcomPassport = (function () {
       }, 400)
     },
 
-    getSession
+    'getSession': getSession
   }
 }())
