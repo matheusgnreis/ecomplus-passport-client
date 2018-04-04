@@ -142,6 +142,38 @@ window.EcomPassport = (function () {
       }, 400)
     },
 
-    'getSession': getSession
+    // pass getSession function
+    // ajax request to get customer info and save authentication session
+    'getSession': getSession,
+
+    /* utility methods */
+
+    'isLogged': function () {
+      // returns boolean
+      // it does not validate authentication, only checks session existence
+      if (session.auth && session.auth.token) {
+        return true
+      } else {
+        return false
+      }
+    },
+
+    'customerObject': function () {
+      // returns object
+      if (session.customer) {
+        return session.customer
+      } else {
+        return {}
+      }
+    },
+
+    'customerName': function () {
+      // returns string
+      if (session.customer) {
+        return session.customer.name
+      } else {
+        return ''
+      }
+    }
   }
 }())
