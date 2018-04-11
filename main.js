@@ -75,7 +75,7 @@
     }
 
     var getSession = function (loginCallback) {
-      let callback = function (res) {
+      var callback = function (res) {
         // successful request
         sessionResponse(res)
         if (typeof loginCallback === 'function') {
