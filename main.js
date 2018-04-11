@@ -125,30 +125,32 @@
         makeId()
         var uri = baseUri + lang + '/' + storeId + '/' + reqId + '/login.html'
         var popup = window.open(uri, 'Passport', 'height=400,width=340')
-        if (window.focus) {
-          popup.focus()
-        }
-
-        var getCustomerInfo = function (fromCallback) {
-          // run after login
-          clearInterval(popupWatch)
-          // console.log('logged?')
-          // store customer public info and authentication session
-          getSession()
-        }
-
-        // public callback function
-        window.passportCallback = function () {
-          // logged
-          getCustomerInfo(true)
-        }
-        // fallback
-        var popupWatch = setInterval(function () {
-          if (popup.closed) {
-            // may be logged
-            getCustomerInfo(false)
+        if (popup) {
+          if (window.focus) {
+            popup.focus()
           }
-        }, 400)
+
+          var getCustomerInfo = function (fromCallback) {
+            // run after login
+            clearInterval(popupWatch)
+            // console.log('logged?')
+            // store customer public info and authentication session
+            getSession()
+          }
+
+          // public callback function
+          window.passportCallback = function () {
+            // logged
+            getCustomerInfo(true)
+          }
+          // fallback
+          var popupWatch = setInterval(function () {
+            if (popup.closed) {
+              // may be logged
+              getCustomerInfo(false)
+            }
+          }, 400)
+        }
       },
 
       // pass getSession function
