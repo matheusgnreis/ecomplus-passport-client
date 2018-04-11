@@ -74,9 +74,16 @@
       }
     }
 
-    var getSession = function () {
+    var getSession = function (loginCallback) {
+      let callback = function (res) {
+        // successful request
+        sessionResponse(res)
+        if (typeof loginCallback === 'function') {
+          loginCallback(session)
+        }
+      }
       // get customer info and authentication session
-      ajaxRequest('GET', '/token.json', null, false, sessionResponse)
+      ajaxRequest('GET', '/token.json', null, false, callback)
     }
 
     return {
@@ -118,7 +125,7 @@
         return session
       },
 
-      'loginPopup': function () {
+      'loginPopup': function (loginCallback) {
         // show login frame with popup window
         // start E-Com Plus Passport flow
         // new request ID
@@ -135,7 +142,7 @@
             clearInterval(popupWatch)
             // console.log('logged?')
             // store customer public info and authentication session
-            getSession()
+            getSession(loginCallback)
           }
 
           // public callback function
