@@ -1,6 +1,6 @@
 {
   "name": "ecomplus-passport-client",
-  "version": "0.3.4",
+  "version": "0.3.5",
   "description": "JS client script to use E-Com Plus Passport on storefront",
   "main": "main.js",
   "scripts": {
