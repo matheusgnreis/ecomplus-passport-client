@@ -42,6 +42,7 @@
         ajax.onreadystatechange = function () {
           if (this.readyState === 4) {
             // done
+            console.log(this)
             if (this.status === 200) {
               // treat response
               successCallback(this)
@@ -75,6 +76,7 @@
     var sessionResponse = function (res) {
       // set new session
       var body = res.responseJSON
+      console.log(res)
       console.log(body)
       if (typeof body === 'object' && body !== null) {
         // set global
