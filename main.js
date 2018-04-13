@@ -108,7 +108,7 @@
           sessionResponse(res)
         }
         if (typeof loginCallback === 'function') {
-          loginCallback(session)
+          loginCallback(session.customer)
         }
       }
       // get customer info and authentication session
