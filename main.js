@@ -40,10 +40,19 @@
         // supported by recent browsers
         ajax = new XMLHttpRequest()
         ajax.onreadystatechange = function () {
-          console.log(this)
-          if (this.readyState === 4 && this.status === 200) {
-            // treat response
-            successCallback(this)
+          if (this.readyState === 4) {
+            // done
+            if (this.status === 200) {
+              // treat response
+              successCallback(this)
+            } else {
+              // log error
+              var msg = 'Request to ' + url + ' failed:\n' +
+                this.status + '\n' +
+                this.responseText
+              var err = new Error(msg)
+              console.error(err)
+            }
           }
         }
       }
@@ -66,7 +75,6 @@
     var sessionResponse = function (res) {
       // set new session
       var body = res.responseJSON
-      console.log(body)
       if (typeof body === 'object' && body !== null) {
         // set global
         session = body
@@ -77,9 +85,7 @@
     }
 
     var getSession = function (loginCallback) {
-      console.log('get session')
       var callback = function (res) {
-        console.log('response from token')
         // successful request
         sessionResponse(res)
         if (typeof loginCallback === 'function') {
