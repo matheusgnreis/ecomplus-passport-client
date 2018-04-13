@@ -75,12 +75,14 @@
 
     var sessionResponse = function (res) {
       // set new session
-      var body = res.responseJSON
-      console.log(res)
-      console.log(body)
+      try {
+        var body = JSON.parse(res.responseText)
+      } catch (err) {
+        // invalid JSON
+        console.error(err)
+      }
       if (typeof body === 'object' && body !== null) {
         // set global
-        console.log('set session')
         session = body
         // keep session JSON on cookie
         // by default, the cookie is deleted when the browser is closed
@@ -92,7 +94,7 @@
       var callback = function (res) {
         // successful request
         sessionResponse(res)
-        if (typeof loginCallback === 'function') {
+        if (typeof loginCallback === 'function' && session.auth) {
           loginCallback(session)
         }
       }
