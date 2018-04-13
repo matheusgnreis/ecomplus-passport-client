@@ -40,6 +40,7 @@
         // supported by recent browsers
         ajax = new XMLHttpRequest()
         ajax.onreadystatechange = function () {
+          console.log(this)
           if (this.readyState === 4 && this.status === 200) {
             // treat response
             successCallback(this)
