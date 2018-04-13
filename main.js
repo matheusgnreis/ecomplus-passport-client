@@ -26,38 +26,50 @@
       }
     }
 
-    var ajaxRequest = function (method, endpoint, body, authenticate, successCallback) {
+    var ajaxError = function (url, res, callback) {
+      // log error
+      var msg = 'Request to ' + url + ' failed:\n' +
+        res.status + '\n' +
+        res.responseText
+      var err = new Error(msg)
+      console.error(err)
+      // proceed to callback
+      callback(err, res)
+    }
+
+    var ajaxRequest = function (method, endpoint, body, authenticate, callback) {
+      var url = baseUri + storeId + '/' + reqId + endpoint
       // call with AJAX
       var ajax
+
       if (window.XDomainRequest) {
         // IE 8,9
         ajax = new window.XDomainRequest()
+
+        ajax.ontimeout = ajax.onerror = function () {
+          ajaxError(url, this, callback)
+        }
         ajax.onload = function () {
           // treat response
-          successCallback(this)
+          callback(null, this)
         }
       } else {
         // supported by recent browsers
         ajax = new XMLHttpRequest()
+
         ajax.onreadystatechange = function () {
           if (this.readyState === 4) {
             // done
             if (this.status === 200) {
               // treat response
-              successCallback(this)
+              callback(null, this)
             } else {
-              // log error
-              var msg = 'Request to ' + url + ' failed:\n' +
-                this.status + '\n' +
-                this.responseText
-              var err = new Error(msg)
-              console.error(err)
+              ajaxError(url, this, callback)
             }
           }
         }
       }
 
-      var url = baseUri + storeId + '/' + reqId + endpoint
       ajax.open(method, url, true)
       if (authenticate && typeof session.auth === 'object' && session.auth !== null) {
         // add authentication headers
@@ -90,10 +102,12 @@
     }
 
     var getSession = function (loginCallback) {
-      var callback = function (res) {
-        // successful request
-        sessionResponse(res)
-        if (typeof loginCallback === 'function' && session.auth) {
+      var callback = function (err, res) {
+        if (!err) {
+          // successful request
+          sessionResponse(res)
+        }
+        if (typeof loginCallback === 'function') {
           loginCallback(session)
         }
       }
