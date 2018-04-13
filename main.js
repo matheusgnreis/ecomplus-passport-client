@@ -75,8 +75,10 @@
     var sessionResponse = function (res) {
       // set new session
       var body = res.responseJSON
+      console.log(body)
       if (typeof body === 'object' && body !== null) {
         // set global
+        console.log('set session')
         session = body
         // keep session JSON on cookie
         // by default, the cookie is deleted when the browser is closed
