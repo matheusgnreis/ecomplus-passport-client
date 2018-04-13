@@ -65,6 +65,7 @@
     var sessionResponse = function (res) {
       // set new session
       var body = res.responseJSON
+      console.log(body)
       if (typeof body === 'object' && body !== null) {
         // set global
         session = body
@@ -75,7 +76,9 @@
     }
 
     var getSession = function (loginCallback) {
+      console.log('get session')
       var callback = function (res) {
+        console.log('response from token')
         // successful request
         sessionResponse(res)
         if (typeof loginCallback === 'function') {
