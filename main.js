@@ -42,7 +42,6 @@
         ajax.onreadystatechange = function () {
           if (this.readyState === 4) {
             // done
-            console.log(this)
             if (this.status === 200) {
               // treat response
               successCallback(this)
