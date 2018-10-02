@@ -73,8 +73,8 @@
       ajax.open(method, url, true)
       if (authenticate && typeof session.auth === 'object' && session.auth !== null) {
         // add authentication headers
-        ajax.setRequestHeader('X-My-ID', session.auth.id)
-        ajax.setRequestHeader('X-Access-Token', session.auth.token)
+        ajax.setRequestHeader('X-My-ID', session.auth.token.my_id)
+        ajax.setRequestHeader('X-Access-Token', session.auth.token.access_token)
       }
       if (body) {
         // send JSON body
