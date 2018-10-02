@@ -38,7 +38,7 @@
     }
 
     var ajaxRequest = function (method, endpoint, body, authenticate, callback) {
-      var url = baseUri + storeId + '/' + reqId + endpoint
+      var url = baseUri + storeId + '/' + endpoint
       // call with AJAX
       var ajax
 
@@ -112,7 +112,7 @@
         }
       }
       // get customer info and authentication session
-      ajaxRequest('GET', '/token.json', null, false, callback)
+      ajaxRequest('GET', reqId + '/token.json', null, false, callback)
     }
 
     return {
@@ -192,6 +192,29 @@
       // pass getSession function
       // ajax request to get customer info and save authentication session
       'getSession': getSession,
+
+      // REST API requests
+      // https://github.com/ecomclub/ecomplus-passport/blob/master/routes/api.js
+      'api': function (endpoint, method, body, apiCallback) {
+        // fallback for endpoint param
+        if (endpoint.charAt(0) !== '/') {
+          endpoint = '/' + endpoint
+        }
+        var callback = function (err, res) {
+          // pass to callback or debug only
+          if (typeof apiCallback === 'function') {
+            apiCallback(err, res)
+          } else if (!err) {
+            console.log(res)
+          } else {
+            console.error(err)
+          }
+        }
+
+        // run the request
+        // bypass received params
+        ajaxRequest(method, 'api' + endpoint, body, true, callback)
+      },
 
       /* utility methods */
 
