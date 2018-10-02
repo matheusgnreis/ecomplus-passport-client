@@ -200,10 +200,23 @@
         if (endpoint.charAt(0) !== '/') {
           endpoint = '/' + endpoint
         }
+
         var callback = function (err, res) {
           // pass to callback or debug only
           if (typeof apiCallback === 'function') {
-            apiCallback(err, res)
+            // pass response body
+            var body
+            try {
+              body = JSON.parse(res.responseText)
+            } catch (e) {
+              // not a valid JSON
+              if (!err) {
+                err = e
+              }
+              // bypass response object
+              body = res
+            }
+            apiCallback(err, body)
           } else if (!err) {
             console.log(res)
           } else {
