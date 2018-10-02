@@ -75,7 +75,6 @@
         // add authentication headers
         ajax.setRequestHeader('X-My-ID', session.auth.token.my_id)
         ajax.setRequestHeader('X-Access-Token', session.auth.token.access_token)
-        console.log(session.auth.token.my_id, session.auth.token.access_token)
       }
       if (body) {
         // send JSON body
