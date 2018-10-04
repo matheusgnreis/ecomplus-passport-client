@@ -78,6 +78,7 @@
       }
       if (body) {
         // send JSON body
+        ajax.setRequestHeader('Content-Type', 'application/json')
         ajax.send(JSON.stringify(body))
       } else {
         ajax.send()
