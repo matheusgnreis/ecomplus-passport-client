@@ -60,7 +60,7 @@
         ajax.onreadystatechange = function () {
           if (this.readyState === 4) {
             // done
-            if (this.status === 200) {
+            if (this.status >= 200 && this.status < 300) {
               // treat response
               callback(null, this)
             } else {
@@ -207,15 +207,19 @@
           if (typeof apiCallback === 'function') {
             // pass response body
             var body
-            try {
-              body = JSON.parse(res.responseText)
-            } catch (e) {
-              // not a valid JSON
-              if (!err) {
-                err = e
+            if (res.status === 204) {
+              body = null
+            } else {
+              try {
+                body = JSON.parse(res.responseText)
+              } catch (e) {
+                // not a valid JSON
+                if (!err) {
+                  err = e
+                }
+                // bypass response object
+                body = res
               }
-              // bypass response object
-              body = res
             }
             apiCallback(err, body)
           } else if (!err) {
