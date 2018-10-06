@@ -190,6 +190,12 @@
         }
       },
 
+      'logout': function () {
+        // just clears current session and cookie
+        session = {}
+        document.cookie = cookieName + '"null"'
+      },
+
       // pass getSession function
       // ajax request to get customer info and save authentication session
       'getSession': getSession,
