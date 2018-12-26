@@ -155,12 +155,16 @@
         return session
       },
 
-      'loginPopup': function (loginCallback) {
+      'loginPopup': function (loginCallback, enableSkip) {
         // show login frame with popup window
         // start E-Com Plus Passport flow
         // new request ID
         makeId()
         var uri = baseUri + lang + '/' + storeId + '/' + reqId + '/login.html'
+        if (enableSkip) {
+          // shows link to skip social login
+          uri += '?enable_skip=true'
+        }
         var popup = window.open(uri, 'Passport', 'height=400,width=340')
         if (popup) {
           if (window.focus) {
