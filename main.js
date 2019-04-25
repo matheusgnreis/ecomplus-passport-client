@@ -268,7 +268,7 @@
       'customerName': function () {
         // returns string
         if (session.customer) {
-          return session.customer.name
+          return session.customer.display_name
         } else {
           return ''
         }
