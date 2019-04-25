@@ -165,7 +165,22 @@
           // shows link to skip social login
           uri += '?enable_skip=true'
         }
-        var popup = window.open(uri, 'Passport', 'height=400,width=340')
+
+        /* global screen */
+        var width
+        if (typeof screen === 'object' && screen !== null) {
+          // set window width based on screen width
+          if (screen.width >= 640) {
+            width = 640
+          } else {
+            width = screen.width
+          }
+        } else {
+          width = 380
+        }
+
+        // open new browser window
+        var popup = window.open(uri, 'Passport', 'height=500,width=' + width)
         if (popup) {
           if (window.focus) {
             popup.focus()
