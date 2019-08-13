@@ -209,6 +209,18 @@
         }
       },
 
+      'loginRest': function (loginCallback, enableSkip) {
+        // start E-Com Plus Passport flow
+        // new request ID
+        makeId()
+        var uri = baseUri + lang + '/' + storeId + '/' + reqId + '/rest'
+        if (enableSkip) {
+          // shows link to skip social login
+          uri += '?enable_skip=true'
+        }
+        return ajaxRequest('GET', uri, null, null, loginCallback)
+      },
+
       'logout': function () {
         // just clears current session and cookie
         session = {}
