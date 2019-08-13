@@ -214,10 +214,6 @@
         // new request ID
         makeId()
         var uri = baseUri + lang + '/' + storeId + '/' + reqId + '/rest'
-        if (enableSkip) {
-          // shows link to skip social login
-          uri += '?enable_skip=true'
-        }
         return ajaxRequest('GET', uri, null, null, loginCallback)
       },
 
