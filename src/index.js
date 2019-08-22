@@ -6,13 +6,11 @@ import emitter from './lib/emitter'
 import init from './methods/init'
 import makeId from './methods/make-id'
 import setSession from './methods/set-session'
-import setOrders from './methods/set-orders'
 import getCustomerName from './methods/customer-name'
 import getCustomer from './methods/customer-object'
 import getSession from './methods/session'
 import getOAuthSession from './methods/get-session'
 import getOAuthProviders from './methods/oauth-providers'
-import getOrders from './methods/get-orders'
 import editCustomers from './methods/edit-customer'
 import editOrders from './methods/edit-order'
 import listOrders from './methods/list-orders'
@@ -45,7 +43,6 @@ export default function (storeId = _store, document = _document, lang = 'pt_br',
   // setters
   this.makeId = () => makeId(self)
   this.setSession = data => setSession(self, localStorage, storageKey, data)
-  this.setOrders = body => setOrders(self, body)
 
   // getters
   this.getAuthLevel = () => self.authLevel
@@ -54,7 +51,6 @@ export default function (storeId = _store, document = _document, lang = 'pt_br',
   this.getSession = () => getSession(self)
   this.getOAuthSession = (callback) => getOAuthSession(self, callback)
   this.getOAuthProviders = () => getOAuthProviders(self)
-  this.getOrders = () => getOrders(self)
 
   // methods
   this.isLogged = () => isLogged(self)
