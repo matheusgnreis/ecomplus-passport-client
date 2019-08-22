@@ -5,11 +5,11 @@ const path = require('path')
 
 // preset default output object
 const output = {
-  library: 'EcomPassportClient',
+  library: 'EcomPassport',
   libraryTarget: 'umd',
   libraryExport: 'default',
   path: path.resolve(__dirname, 'dist'),
-  filename: 'ecom-passport-client.min.js',
+  filename: 'ecom-passport.min.js',
   globalObject: 'this'
 }
 
@@ -21,7 +21,7 @@ const config = {
   devServer: {
     contentBase: path.resolve(__dirname, 'test'),
     compress: true,
-    port: 9022,
+    port: 9103,
     open: true
   },
   module: {
@@ -37,7 +37,7 @@ const config = {
     colors: true
   },
   devtool: 'source-map',
-  externals: devMode ? '' : /^(@babel\/runtime|core-js|@ecomplus\/(utils|client)|lodash)/
+  externals: devMode ? '' : /^[^./].*$/
 }
 
 module.exports = devMode
@@ -53,6 +53,11 @@ module.exports = devMode
         filename: output.filename.replace('.min.js', '.root.min.js')
       },
       externals: {
+        eventemitter3: {
+          commonjs: 'eventemitter3',
+          commonjs2: 'eventemitter3',
+          root: 'EventEmitter'
+        },
         '@ecomplus/utils': {
           commonjs: '@ecomplus/utils',
           commonjs2: '@ecomplus/utils',
