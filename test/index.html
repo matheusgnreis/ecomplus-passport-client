@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script src="ecom-passport-client.min.js"></script>
+<script>
+  window.passport = new EcomPassportClient()
+
+  window.passport.identify('email@test.com', '11111111111')
+
+  window.passport.on('logout', () => {
+    document.write('Deslougadah')
+    console.info('Deslougadah')
+  })
+
+  window.passport.on('login', (user) => {
+    document.write('Lougadah')
+    document.write(JSON.stringify(user))
+    console.info('Lougadah', user)
+    window.passport.listOrders()
+      .then(r => {
+        document.write('Listandoh Orders')
+        document.write(JSON.stringify(r))
+        console.info('Listandoh Orders')
+        console.table(r)
+      })
+  })
+
+</script>
+
+</html>
