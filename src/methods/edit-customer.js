@@ -4,7 +4,7 @@ export default (self, body) => {
   }
 
   // Authenticated request
-  const authenticationId = self.session.auth.token.my_id
+  const customerId = self.session.auth.token.my_id
   const accessToken = self.session.auth.token.my_id
 
   return self.ecomClient
