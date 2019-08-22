@@ -5,17 +5,17 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
+  <title>E-Com Plus Passport Client</title>
 </head>
 
 <body>
 
 </body>
-<script src="ecom-passport-client.min.js"></script>
+<script src="ecom-passport.min.js"></script>
 <script>
-  window.passport = new EcomPassportClient()
+  window.passport = new EcomPassport()
 
-  window.passport.identify('email@test.com', '11111111111')
+  window.passport.identify('example@gmail.com', '123444444')
 
   window.passport.on('logout', () => {
     document.write('Deslougadah')
