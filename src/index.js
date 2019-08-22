@@ -1,9 +1,8 @@
 import { _config } from '@ecomplus/utils'
-import ecomClient from '@ecomplus/client'
 
 import emitter from './lib/emitter'
+import init from './lib/init'
 
-import init from './methods/init'
 import makeId from './methods/make-id'
 import setSession from './methods/set-session'
 import getCustomerName from './methods/customer-name'
@@ -20,25 +19,25 @@ import logout from './methods/logout'
 import loginPopup from './methods/login-popup'
 import identify from './methods/login-rest'
 
-const _store = _config.get('store_id')
-const _key = 'ecomPassport'
-const _storage = typeof window === 'object' && window.localStorage
-const _document = typeof window === 'object' && window.document
-
-export default function (storeId = _store, document = _document, lang = 'pt_br', storageKey = _key, localStorage = _storage) {
-  this.ecomClient = ecomClient
+export default function (
+  storeId = _config.get('store_id'),
+  document = typeof window === 'object' && window.document,
+  lang = _config.get('lang'),
+  storageKey = 'ecomPassport',
+  localStorage = typeof window === 'object' && window.localStorage,
+  cookieName = '_ecom_passport'
+) {
+  this.document = document
   this.storeId = storeId
   this.lang = lang
   this.reqId = null
   this.session = {}
   this.authLevel = 0
   this.baseUri = 'https://passport.e-com.plus/v1/'
-  this.cookieName = '_passport_session='
+  this.cookieName = cookieName
+
   // this
   const self = this
-
-  // init
-  init(self, document)
 
   // setters
   this.makeId = () => makeId(self)
@@ -60,7 +59,7 @@ export default function (storeId = _store, document = _document, lang = 'pt_br',
   this.editCustomers = (body) => editCustomers(self, body)
   this.editOrders = (body) => editOrders(self, body)
   this.viewOrder = (orderId) => viewOrder(self, orderId)
-  this.listOrders = () => listOrders(self)
+  this.listOrders = (from, size) => listOrders(self, from, size)
 
   // emitter
   ;[
@@ -72,4 +71,7 @@ export default function (storeId = _store, document = _document, lang = 'pt_br',
       emitter[method](ev, fn)
     }
   })
+
+  // init
+  init(self)
 }
