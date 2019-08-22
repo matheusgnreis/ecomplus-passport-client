@@ -1,15 +1,17 @@
 import emitter from './../lib/emitter'
+import setCookie from './../lib/set-cookie'
 
-export default (self, localStorage, storageKey, data) => {
-  if (typeof data === 'object' && data !== null) {
-    // set global
-    self.session = data
-    // keep session JSON on cookie
-    // by default, the cookie is deleted when the browser is closed
-    document.cookie = self.cookieName + JSON.stringify(self.session)
-    // localStore
-    localStorage.setItem(storageKey, JSON.stringify(data.customer))
-    // emit
-    emitter.emit('login', data)
+export default (self, session) => {
+  if (typeof session !== 'object' || session === null || Array.isArray(session)) {
+    // session must be an object
+    session = {}
   }
+  self.session = session
+  const { document, cookieName, getCustomerName } = self
+  setCookie(document, cookieName, JSON.stringify(session), 6)
+  if (getCustomerName()) {
+    // emit login event
+    emitter.emit('login', (session.auth && session.auth.level) || 1)
+  }
+  return self
 }
