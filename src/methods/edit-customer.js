@@ -5,7 +5,7 @@ export default (self, body) => {
 
   // Authenticated request
   const customerId = self.session.auth.token.my_id
-  const accessToken = self.session.auth.token.my_id
+  const accessToken = self.session.auth.token.access_token
 
   return self.ecomClient
 

@@ -1,11 +1,8 @@
-import sleep from './../lib/await-sleep'
-
 export default (self) => {
   const customer = self.getCustomer()
   let list = []
   // public api
   list = customer.orders.map(async order => {
-    await sleep(60)
     const options = {
       url: `/orders/${order._id}.json`
     }

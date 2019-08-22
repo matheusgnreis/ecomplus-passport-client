@@ -4,14 +4,14 @@ export default (self, body) => {
   }
 
   // Authenticated request
-  const authenticationId = self.session.auth.token.my_id
-  const accessToken = self.session.auth.token.my_id
+  const customerId = self.session.auth.token.my_id
+  const accessToken = self.session.auth.token.access_token
 
   return self.ecomClient
 
     .passport({
       url: `api/orders.json`,
-      authenticationId,
+      customerId,
       accessToken,
       method: 'POST',
       data: body
