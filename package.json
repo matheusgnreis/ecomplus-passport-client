@@ -1,6 +1,6 @@
 {
   "name": "ecomplus-passport-client",
-  "version": "0.0.1",
+  "version": "1.0.0-beta-1",
   "description": "JS client script to use E-Com Plus Passport on storefront",
   "main": "dist/ecomplus-passport-client.min.js",
   "module": "src/index.js",
@@ -39,6 +39,7 @@
     "@ecomplus/client": "^1.0.3",
     "@ecomplus/utils": "^1.0.1",
     "core-js": "^3.1.4",
+    "eventemitter3": "^4.0.0",
     "lodash.clonedeep": "^4.5.0",
     "lodash.merge": "^4.6.2"
   },
