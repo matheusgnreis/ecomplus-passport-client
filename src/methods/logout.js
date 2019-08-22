@@ -1,9 +1,10 @@
 import emitter from './../lib/emitter'
+import setCookie from './../lib/set-cookie'
 
-export default (self, document) => {
+export default self => {
   // just clears current session and cookie
   self.session = {}
-  document.cookie = self.cookieName + '"null"'
-  self.authLevel = 0
+  setCookie(self.cookieName, -1)
+  // emit logou event
   emitter.emit('logout')
 }
