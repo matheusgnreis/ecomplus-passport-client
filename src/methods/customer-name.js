@@ -1,3 +1,5 @@
+import { nickname } from '@ecomplus/utils'
+
 export default (self) => {
   // returns object
   if (self.session.customer) {
