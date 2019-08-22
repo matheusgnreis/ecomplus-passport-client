@@ -1,16 +1,12 @@
-export default (self) => {
-  const customer = self.getCustomer()
-  let list = []
-  // public api
-  list = customer.orders.map(async order => {
-    const options = {
-      url: `/orders/${order._id}.json`
-    }
-    let result = await self.ecomClient
-      .store(options)
-      .then(resp => resp.data)
-      .catch(err => console.error('E-Com Plus API request failed:', err))
-    return result
-  })
-  return Promise.all(list)
+import { store } from '@ecomplus/client'
+
+export default (self, from = 0, size = 10) => {
+  const { orders } = self.getCustomer()
+  const results = []
+  const promises = []
+  for (let i = 0; i < orders.length && i < (from + size); i++) {
+    promises.push(store({ url: `/orders/${orders[i]._id}.json` })
+      .then(data => results.push(data)))
+  }
+  return Promise.all(promises).then(() => results)
 }
