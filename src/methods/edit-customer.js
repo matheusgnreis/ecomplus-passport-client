@@ -11,7 +11,7 @@ export default (self, body) => {
 
     .passport({
       url: `api/customers.json`,
-      authenticationId,
+      customerId,
       accessToken,
       method: 'POST',
       data: body
