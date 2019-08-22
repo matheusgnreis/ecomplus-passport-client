@@ -8,4 +8,5 @@ export default self => {
   setCookie(document, cookieName, '', -1)
   // emit logou event
   emitter.emit('logout')
+  return self
 }
