@@ -7,9 +7,9 @@ export default (self, session) => {
     session = {}
   }
   self.session = session
-  const { document, cookieName, getCustomerName } = self
+  const { document, cookieName, isAuthorized } = self
   setCookie(document, cookieName, JSON.stringify(session), 6)
-  if (getCustomerName()) {
+  if (isAuthorized()) {
     // emit login event
     emitter.emit('login', (session.auth && session.auth.level) || 1)
   }
