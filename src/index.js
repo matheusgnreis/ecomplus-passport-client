@@ -21,7 +21,7 @@ import loginPopup from './methods/login-popup'
 import identify from './methods/login-rest'
 
 const _store = _config.get('store_id')
-const _key = 'ecomCustomer'
+const _key = 'ecomPassport'
 const _storage = typeof window === 'object' && window.localStorage
 const _document = typeof window === 'object' && window.document
 
