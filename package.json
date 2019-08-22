@@ -1,12 +1,12 @@
 {
-  "name": "ecomplus-passport-client",
-  "version": "1.0.0-beta.1",
-  "description": "JS client script to use E-Com Plus Passport on storefront",
-  "main": "dist/ecomplus-passport-client.min.js",
+  "name": "@ecomplus/passport-client",
+  "version": "0.1.0",
+  "description": "Handle customer authentication with E-Com Plus Passport",
+  "main": "dist/ecomplus-passport.min.js",
   "module": "src/index.js",
-  "browser": "dist/ecomplus-passport-client.min.js",
-  "jsdelivr": "dist/ecomplus-passport-client.root.min.js",
-  "unpkg": "dist/ecomplus-passport-client.root.min.js",
+  "browser": "dist/ecomplus-passport.min.js",
+  "jsdelivr": "dist/ecomplus-passport.root.min.js",
+  "unpkg": "dist/ecomplus-passport.root.min.js",
   "scripts": {
     "build": "NODE_ENV=production webpack",
     "serve": "webpack-dev-server",
@@ -23,16 +23,14 @@
     "passport",
     "login",
     "oauth",
-    "frontend",
-    "JS",
-    "JavaScript"
+    "ecommerce"
   ],
-  "author": "E-Com Club",
+  "author": "E-Com Club <ti@e-com.club>",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/ecomclub/ecomplus-passport-client/issues"
   },
-  "homepage": "https://passport.e-com.plus",
+  "homepage": "https://github.com/ecomclub/ecomplus-passport-client#readme",
   "dependencies": {
     "@babel/runtime": "^7.5.5",
     "@ecomplus/client": "^1.0.3",
