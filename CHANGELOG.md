@@ -2,6 +2,25 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.4.0](https://github.com/ecomclub/ecomplus-passport-client/compare/v0.3.0...v0.4.0) (2019-08-23)
+
+
+### Bug Fixes
+
+* **fetch:** must use self.storeId to request store and passport api ([298441e](https://github.com/ecomclub/ecomplus-passport-client/commit/298441e))
+
+
+### chore
+
+* **rest-api:** renaming method to 'restApi' only ([af320af](https://github.com/ecomclub/ecomplus-passport-client/commit/af320af))
+
+
+### BREAKING CHANGES
+
+* **rest-api:** old 'requestRestApi' no more working
+
+
+
 ## [0.3.0](https://github.com/ecomclub/ecomplus-passport-client/compare/v0.2.0...v0.3.0) (2019-08-23)
 
 
