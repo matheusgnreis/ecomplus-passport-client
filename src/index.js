@@ -10,7 +10,7 @@ import emitter from './lib/emitter'
 import initSession from './methods/init-session'
 import setSession from './methods/set-session'
 import getCustomerName from './methods/get-customer-name'
-import getCustomer from './methods/get-customer-object'
+import getCustomer from './methods/get-customer'
 import fetchOauthProfile from './methods/fetch-oauth-profile'
 import fetchOAuthProviders from './methods/fetch-oauth-providers'
 import fetchLogin from './methods/fetch-login'
@@ -22,7 +22,7 @@ import isVerified from './methods/is-verified'
 import logout from './methods/logout'
 import popupOauthLink from './methods/popup-oauth-link'
 import popupLogin from './methods/popup-login'
-import restApi from './methods/rest-api'
+import requestApi from './methods/request-api'
 
 const _store = _config.get('store_id')
 const _lang = _config.get('lang')
@@ -58,7 +58,7 @@ export default function (storeId = _store, lang = _lang, document = _document, c
   this.fetchOAuthProviders = () => fetchOAuthProviders(self)
   this.fetchOrdersList = (from, size) => fetchOrdersList(self, from, size)
   this.fetchOrder = orderId => fetchOrder(self, orderId)
-  this.restApi = (url, method, data) => restApi(self, url, method, data)
+  this.requestApi = (url, method, data) => requestApi(self, url, method, data)
 
   // async open browser popup
   this.popupOauthLink = url => popupOauthLink(self, url)

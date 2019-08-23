@@ -2,6 +2,7 @@ import { passport } from '@ecomplus/client'
 
 export default (self, email, docNumber = null) => passport({
   url: '/identify.json',
+  storeId: self.storeId,
   method: 'POST',
   data: {
     email,
