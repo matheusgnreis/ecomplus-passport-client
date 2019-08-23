@@ -15,7 +15,7 @@
 <script>
   window.passport = new EcomPassport()
 
-  window.passport.identify('example@gmail.com', '123444444')
+  window.passport.fetchLogin('example@gmail.com', '123444444')
 
   window.passport.on('logout', () => {
     document.write('Deslougadah')
@@ -26,7 +26,7 @@
     document.write('Lougadah')
     document.write(JSON.stringify(user))
     console.info('Lougadah', user)
-    window.passport.listOrders()
+    window.passport.fetchOrdersList()
       .then(r => {
         document.write('Listandoh Orders')
         document.write(JSON.stringify(r))
