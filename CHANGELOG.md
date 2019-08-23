@@ -2,6 +2,47 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.3.0](https://github.com/ecomclub/ecomplus-passport-client/compare/v0.2.0...v0.3.0) (2019-08-23)
+
+
+### Bug Fixes
+
+* **fetch-oauth:** fixing fetch methods names and handlers ([fb1eade](https://github.com/ecomclub/ecomplus-passport-client/commit/fb1eade))
+* **fetch-orders:** fix names and handle fetch order and orders list ([aeeeb72](https://github.com/ecomclub/ecomplus-passport-client/commit/aeeeb72))
+* **get-customer:** fixing get methods names and handlers ([651fd3c](https://github.com/ecomclub/ecomplus-passport-client/commit/651fd3c))
+* **logout:** ensure cookie unset ([777926a](https://github.com/ecomclub/ecomplus-passport-client/commit/777926a))
+* **logout:** fix unseting cookie ([5d87191](https://github.com/ecomclub/ecomplus-passport-client/commit/5d87191))
+* **logout:** return self instance (as a setter) ([8dd4baf](https://github.com/ecomclub/ecomplus-passport-client/commit/8dd4baf))
+* **post-login:** fix method to login with email/doc ([ae85bde](https://github.com/ecomclub/ecomplus-passport-client/commit/ae85bde))
+* **set-session:** check auth level with isAuthorized ([9ae8521](https://github.com/ecomclub/ecomplus-passport-client/commit/9ae8521))
+* **set-session:** save to cookie with expiration time, emit with level ([6ba50dc](https://github.com/ecomclub/ecomplus-passport-client/commit/6ba50dc))
+* **state-getters:** handling is authorized and is logged (bools) ([f2311cb](https://github.com/ecomclub/ecomplus-passport-client/commit/f2311cb))
+
+
+### Features
+
+* **init-session:** try to get stored session, create session id ([b59d84c](https://github.com/ecomclub/ecomplus-passport-client/commit/b59d84c))
+* **is-verified:** method to check last authorization level ([a588273](https://github.com/ecomclub/ecomplus-passport-client/commit/a588273))
+* **popups:** popup for oauth direct link and login menu ([1c97122](https://github.com/ecomclub/ecomplus-passport-client/commit/1c97122))
+* **request-rest-api:** send authenticated request to passport rest api ([ceb0368](https://github.com/ecomclub/ecomplus-passport-client/commit/ceb0368))
+
+
+### refactor
+
+* **consturctor:** renaming methods, removing unecessary members ([f47705a](https://github.com/ecomclub/ecomplus-passport-client/commit/f47705a))
+
+
+### Tests
+
+* **fix:** update with new methods ([ccb16f0](https://github.com/ecomclub/ecomplus-passport-client/commit/ccb16f0))
+
+
+### BREAKING CHANGES
+
+* **consturctor:** methods renamed, old methods will no more work
+
+
+
 ## 0.2.0 (2019-08-22)
 
 
