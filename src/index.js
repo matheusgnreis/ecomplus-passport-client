@@ -22,7 +22,7 @@ import isVerified from './methods/is-verified'
 import logout from './methods/logout'
 import popupOauthLink from './methods/popup-oauth-link'
 import popupLogin from './methods/popup-login'
-import requestRestApi from './methods/request-rest-api'
+import restApi from './methods/rest-api'
 
 const _store = _config.get('store_id')
 const _lang = _config.get('lang')
@@ -58,7 +58,7 @@ export default function (storeId = _store, lang = _lang, document = _document, c
   this.fetchOAuthProviders = () => fetchOAuthProviders(self)
   this.fetchOrdersList = (from, size) => fetchOrdersList(self, from, size)
   this.fetchOrder = orderId => fetchOrder(self, orderId)
-  this.requestRestApi = (url, method, data) => requestRestApi(self, url, method, data)
+  this.restApi = (url, method, data) => restApi(self, url, method, data)
 
   // async open browser popup
   this.popupOauthLink = url => popupOauthLink(self, url)
