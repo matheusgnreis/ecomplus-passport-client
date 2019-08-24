@@ -7,6 +7,6 @@ export default self => {
   const { document, cookieName } = self
   setCookie(document, cookieName, '', -1)
   // emit logou event
-  emitter.emit('logout')
+  emitter.emit('logout', self)
   return self
 }
