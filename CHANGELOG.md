@@ -2,6 +2,32 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.5.0](https://github.com/ecomclub/ecomplus-passport-client/compare/v0.4.0...v0.5.0) (2019-08-24)
+
+
+### Bug Fixes
+
+* **constructor:** events are global, set it on constructor ([486be86](https://github.com/ecomclub/ecomplus-passport-client/commit/486be86))
+* **constructor:** get store id from config dynamically ([9ab041b](https://github.com/ecomclub/ecomplus-passport-client/commit/9ab041b))
+* **get-customer-name:** call getCustomer method correctly ([07a5dbb](https://github.com/ecomclub/ecomplus-passport-client/commit/07a5dbb))
+
+
+### Features
+
+* **emitter:** emit events with self (instance) as argument ([3443952](https://github.com/ecomclub/ecomplus-passport-client/commit/3443952))
+
+
+### Tests
+
+* **events:** update handling events (from constructor) ([b719bc0](https://github.com/ecomclub/ecomplus-passport-client/commit/b719bc0))
+
+
+### BREAKING CHANGES
+
+* **constructor:** instance have no more on, off, once fn
+
+
+
 ## [0.4.0](https://github.com/ecomclub/ecomplus-passport-client/compare/v0.3.0...v0.4.0) (2019-08-23)
 
 
