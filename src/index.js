@@ -24,13 +24,12 @@ import popupOauthLink from './methods/popup-oauth-link'
 import popupLogin from './methods/popup-login'
 import requestApi from './methods/request-api'
 
-const _store = _config.get('store_id')
 const _lang = _config.get('lang')
 const _document = typeof window === 'object' && window.document
 const _cookie = '_ecom_passport'
 
-export default function (storeId = _store, lang = _lang, document = _document, cookieName = _cookie) {
-  this.storeId = storeId
+export default function (storeId, lang = _lang, document = _document, cookieName = _cookie) {
+  this.storeId = storeId || _config.get('store_id')
   this.lang = lang
   this.sessionId = ''
   this.session = {}
