@@ -28,7 +28,7 @@ const _lang = _config.get('lang')
 const _document = typeof window === 'object' && window.document
 const _cookie = '_ecom_passport'
 
-export default function (storeId, lang = _lang, document = _document, cookieName = _cookie) {
+const EcomPassport = function (storeId, lang = _lang, document = _document, cookieName = _cookie) {
   this.storeId = storeId || _config.get('store_id')
   this.lang = lang
   this.sessionId = ''
@@ -63,13 +63,15 @@ export default function (storeId, lang = _lang, document = _document, cookieName
   this.popupOauthLink = url => popupOauthLink(self, url)
   this.popupLogin = (enableSkip, baseUri) => popupLogin(self, enableSkip, baseUri)
 
-  // events emitter
-  ;['on', 'off', 'once'].forEach(method => {
-    self[method] = (ev, fn) => {
-      emitter[method](ev, fn)
-    }
-  })
-
   // init
   initSession(self)
 }
+
+// events emitter
+;['on', 'off', 'once'].forEach(method => {
+  EcomPassport[method] = (ev, fn) => {
+    emitter[method](ev, fn)
+  }
+})
+
+export default EcomPassport
