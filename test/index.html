@@ -17,12 +17,12 @@
 
   window.passport.fetchLogin('example@gmail.com', '123444444')
 
-  window.passport.on('logout', () => {
+  EcomPassport.on('logout', () => {
     document.write('Deslougadah')
     console.info('Deslougadah')
   })
 
-  window.passport.on('login', (user) => {
+  EcomPassport.on('login', (user) => {
     document.write('Lougadah')
     document.write(JSON.stringify(user))
     console.info('Lougadah', user)
