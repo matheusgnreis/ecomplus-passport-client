@@ -12,7 +12,7 @@ import setSession from './methods/set-session'
 import getCustomerName from './methods/get-customer-name'
 import getCustomer from './methods/get-customer'
 import fetchOauthProfile from './methods/fetch-oauth-profile'
-import fetchOAuthProviders from './methods/fetch-oauth-providers'
+import fetchOauthProviders from './methods/fetch-oauth-providers'
 import fetchLogin from './methods/fetch-login'
 import fetchOrdersList from './methods/fetch-orders-list'
 import fetchOrder from './methods/fetch-order'
@@ -54,7 +54,7 @@ const EcomPassport = function (storeId, lang = _lang, document = _document, cook
   // rest api requests
   this.fetchLogin = (email, docNumber) => fetchLogin(self, email, docNumber)
   this.fetchOauthProfile = () => fetchOauthProfile(self)
-  this.fetchOAuthProviders = () => fetchOAuthProviders(self)
+  this.fetchOauthProviders = () => fetchOauthProviders(self)
   this.fetchOrdersList = (from, size) => fetchOrdersList(self, from, size)
   this.fetchOrder = orderId => fetchOrder(self, orderId)
   this.requestApi = (url, method, data) => requestApi(self, url, method, data)
