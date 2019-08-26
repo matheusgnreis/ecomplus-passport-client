@@ -1,7 +1,15 @@
 import { passport } from '@ecomplus/client'
+import createIframe from './../lib/create-iframe'
 
-export default self => passport({
+export default (self, setupIframe = true) => passport({
   url: `${self.sessionId}/oauth-providers.json`,
   storeId: self.storeId
 })
-  .then(({ data }) => data)
+  .then(({ data }) => {
+    if (setupIframe) {
+      // oauth session iframe to create cookies
+      const { iframeUri } = data
+      createIframe(iframeUri)
+    }
+    return data
+  })
