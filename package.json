@@ -33,7 +33,7 @@
   "homepage": "https://github.com/ecomclub/ecomplus-passport-client#readme",
   "dependencies": {
     "@babel/runtime": "^7.5.5",
-    "@ecomplus/client": "^1.0.3",
+    "@ecomplus/client": "^1.1.2",
     "@ecomplus/utils": "^1.0.1",
     "core-js": "^3.1.4",
     "eventemitter3": "^4.0.0"
@@ -50,7 +50,7 @@
     "jsdoc": "^3.6.3",
     "standard": "^13.1.0",
     "standard-version": "^6.0.1",
-    "webpack": "^4.39.1",
+    "webpack": "^4.39.3",
     "webpack-cli": "^3.3.7",
     "webpack-dev-server": "^3.7.2"
   },
