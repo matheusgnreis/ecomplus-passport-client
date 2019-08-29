@@ -37,7 +37,7 @@ const config = {
     colors: true
   },
   devtool: 'source-map',
-  externals: devMode ? '' : /^[^./].*$/
+  externals: devMode ? '' : /^(@babel\/runtime|core-js|@ecomplus\/(utils|client)|eventemitter3)/
 }
 
 module.exports = devMode
