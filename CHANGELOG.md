@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.7.1](https://github.com/ecomclub/ecomplus-passport-client/compare/v0.7.0...v0.7.1) (2019-08-29)
+
+
+### Build System
+
+* **webpack:** fix webpack externals default config ([bfa8f7f](https://github.com/ecomclub/ecomplus-passport-client/commit/bfa8f7f))
+
+
+
 ## [0.7.0](https://github.com/ecomclub/ecomplus-passport-client/compare/v0.6.0...v0.7.0) (2019-08-26)
 
 
