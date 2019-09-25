@@ -1,6 +1,6 @@
 import { passport } from '@ecomplus/client'
 
-export default (self, url, method, data) => {
+export default (self, url, method = 'get', data) => {
   const { storeId, session, isLogged, isAuthorized, isVerified } = self
 
   // check authorization level first
@@ -20,12 +20,17 @@ export default (self, url, method, data) => {
       }
   }
 
+  // fix URL with api prefix if necessary
+  if (url.indexOf('api/') < 0) {
+    url = '/api' + (url.charAt(0) === '/' ? url : `/${url}`)
+  }
+
   // send authenticated request to E-Com Plus Passport REST API
   return passport({
     url,
     storeId,
     customerId: session.auth.id,
-    accessToken: session.auth.token,
+    accessToken: session.auth.token && session.auth.token.access_token,
     method,
     data
   })
