@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.7.2](https://github.com/ecomclub/ecomplus-passport-client/compare/v0.7.1...v0.7.2) (2019-09-25)
+
+
+### Bug Fixes
+
+* **request-api:** fix url with api prefix and handle token correctly ([a77a3d9](https://github.com/ecomclub/ecomplus-passport-client/commit/a77a3d9))
+
+
+
 ### [0.7.1](https://github.com/ecomclub/ecomplus-passport-client/compare/v0.7.0...v0.7.1) (2019-08-29)
 
 
