@@ -7,17 +7,12 @@ export default (self, url, method = 'get', data) => {
   if (!isLogged()) {
     return Promise.reject(new Error('Unauthorized, requires login'))
   }
-  switch (method.toLowerCase()) {
-    case 'get':
-    case 'post':
-      if (!isAuthorized()) {
-        return Promise.reject(new Error('Unauthorized, requires login with doc number'))
-      }
-      break
-    default:
-      if (!isVerified()) {
-        return Promise.reject(new Error('Unauthorized, requires oauth login'))
-      }
+  if (url.endsWith('/me.json') || (method === 'get' || method === 'post')) {
+    if (!isAuthorized()) {
+      return Promise.reject(new Error('Unauthorized, requires login with doc number'))
+    }
+  } else if (!isVerified()) {
+    return Promise.reject(new Error('Unauthorized, requires oauth login'))
   }
 
   // fix URL with api prefix if necessary
