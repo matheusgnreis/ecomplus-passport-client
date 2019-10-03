@@ -34,7 +34,7 @@
   "dependencies": {
     "@babel/runtime": "^7.6.2",
     "@ecomplus/client": "^1.1.3",
-    "@ecomplus/utils": "^1.0.1",
+    "@ecomplus/utils": "^1.1.0",
     "core-js": "^3.1.4",
     "eventemitter3": "^4.0.0"
   },
@@ -46,13 +46,13 @@
     "@commitlint/config-conventional": "^8.2.0",
     "babel-loader": "^8.0.6",
     "docdash": "^1.1.1",
-    "husky": "^3.0.5",
+    "husky": "^3.0.8",
     "jsdoc": "^3.6.3",
     "standard": "^13.1.0",
     "standard-version": "^6.0.1",
     "webpack": "^4.41.0",
     "webpack-cli": "^3.3.9",
-    "webpack-dev-server": "^3.8.1"
+    "webpack-dev-server": "^3.8.2"
   },
   "husky": {
     "hooks": {
