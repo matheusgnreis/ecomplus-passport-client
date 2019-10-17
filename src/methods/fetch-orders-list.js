@@ -9,7 +9,7 @@ export default (self, from = 0, size = 10) => {
       url: `/orders/${orders[i]._id}.json`,
       storeId: self.storeId
     })
-      .then(data => results.push(data)))
+      .then(({ data }) => results.push(data)))
   }
   return Promise.all(promises).then(() => results)
 }
