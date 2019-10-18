@@ -2,7 +2,7 @@ import { passport, store } from '@ecomplus/client'
 
 export default (self, orderId) => {
   const { storeId, session, isAuthorized } = self
-  const url = `/orders/${orderId}.json`
+  const url = `/api/orders/${orderId}.json`
   let req
   if (isAuthorized()) {
     // with authentication
@@ -10,7 +10,7 @@ export default (self, orderId) => {
     req = passport({
       url,
       customerId: auth.id,
-      accessToken: auth.token,
+      accessToken: auth.token.access_token,
       storeId
     })
   } else {
