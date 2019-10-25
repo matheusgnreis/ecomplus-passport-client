@@ -1,5 +1,4 @@
 import { store } from '@ecomplus/client'
-
 export default (self, from = 0, size = 10) => {
   const { orders } = self.getCustomer()
   const results = []
