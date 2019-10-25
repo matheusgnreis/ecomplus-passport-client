@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.7.5](https://github.com/ecomclub/ecomplus-passport-client/compare/v0.7.4...v0.7.5) (2019-10-25)
+
+
+### Bug Fixes
+
+* **fetch-order:** fix endpoint, start using self.requestApi ([#13](https://github.com/ecomclub/ecomplus-passport-client/issues/13)) ([784e8fe](https://github.com/ecomclub/ecomplus-passport-client/commit/784e8fefc48239958081d315428ad59422599416))
+* order resource and access_token ([091829d](https://github.com/ecomclub/ecomplus-passport-client/commit/091829d366a706e7ac764373828060fe0792d8f1))
+
 ### [0.7.4](https://github.com/ecomclub/ecomplus-passport-client/compare/v0.7.3...v0.7.4) (2019-10-17)
 
 
