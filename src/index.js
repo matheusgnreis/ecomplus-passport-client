@@ -9,6 +9,7 @@ import emitter from './lib/emitter'
 
 import initSession from './methods/init-session'
 import setSession from './methods/set-session'
+import setCustomer from './methods/set-customer'
 import getCustomerName from './methods/get-customer-name'
 import getCustomer from './methods/get-customer'
 import fetchOauthProfile from './methods/fetch-oauth-profile'
@@ -41,8 +42,9 @@ const EcomPassport = function (storeId, lang = _lang, document = _document, cook
 
   // setters
   this.initSession = () => initSession(self)
-  this.setSession = data => setSession(self, data)
+  this.setSession = session => setSession(self, session)
   this.logout = () => logout(self, document)
+  this.setCustomer = customer => setCustomer(self, customer)
 
   // getters
   this.getCustomerName = () => getCustomerName(self)
