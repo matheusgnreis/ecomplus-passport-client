@@ -1,16 +1,21 @@
 import { store } from '@ecomplus/client'
 
 export default (self, from = 0, size = 10) => {
-  const { orders } = self.getCustomer()
-  const results = []
-  const promises = []
-  for (let i = 0; i < orders.length && i < (from + size); i++) {
-    // use ecomClient.store to fetch cache (faster) API
-    promises.push(store({
-      url: `/orders/${orders[i]._id}.json`,
-      storeId: self.storeId
+  const requestPromises = []
+  const resultOrders = []
+
+  self.getCustomer().orders
+    // sort by order number desc
+    .sort((a, b) => b.number - a.number)
+    .slice(from, from + size)
+    .forEach(({ _id }) => {
+      // use ecomClient.store to fetch cache (faster) API
+      requestPromises.push(store({
+        url: `/orders/${_id}.json`,
+        storeId: self.storeId
+      })
+        .then(({ data }) => resultOrders.push(data)))
     })
-      .then(({ data }) => results.push(data)))
-  }
-  return Promise.all(promises).then(() => results)
+
+  return Promise.all(requestPromises).then(() => resultOrders)
 }
