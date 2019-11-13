@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.7.9](https://github.com/ecomclub/ecomplus-passport-client/compare/v0.7.8...v0.7.9) (2019-11-13)
+
+
+### Bug Fixes
+
+* **request-api:** ensure method is lowercased ([d435bfb](https://github.com/ecomclub/ecomplus-passport-client/commit/d435bfb2ace613198025564cb73a7ec76f6652a1))
+* **set-customer:** update cookie value with new customer ([a023bbf](https://github.com/ecomclub/ecomplus-passport-client/commit/a023bbf0504d673046ad6f2e8c3f70f7a4cc91ba))
+
 ### [0.7.8](https://github.com/ecomclub/ecomplus-passport-client/compare/v0.7.7...v0.7.8) (2019-11-13)
 
 
