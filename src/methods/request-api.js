@@ -1,6 +1,12 @@
 import { passport } from '@ecomplus/client'
 
-export default (self, url, method = 'get', data) => {
+export default (self, url, method, data) => {
+  // ensure method is lowercased
+  if (method) {
+    method = method.toLowerCase()
+  } else {
+    method = 'get'
+  }
   const { storeId, session, isLogged, isAuthorized, isVerified } = self
 
   // check authorization level first
@@ -29,7 +35,7 @@ export default (self, url, method = 'get', data) => {
     method,
     data
   }).then(response => {
-    if (data && url.indexOf('/me.json') >= 0) {
+    if (url.endsWith('/me.json') && method === 'patch') {
       // customer updated
       // also update current session customer object
       self.setCustomer(data)
