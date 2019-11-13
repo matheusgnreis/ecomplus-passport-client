@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.7.8](https://github.com/ecomclub/ecomplus-passport-client/compare/v0.7.7...v0.7.8) (2019-11-13)
+
+
+### Features
+
+* **set-customer:** add new 'setCustomer' method ([e8a9b73](https://github.com/ecomclub/ecomplus-passport-client/commit/e8a9b73fac5737fa6a61847f7d4bba68db3dc5e7))
+
+
+### Bug Fixes
+
+* **request-api:** also update current session customer object ([42844a2](https://github.com/ecomclub/ecomplus-passport-client/commit/42844a22554bb764fb52c2e2d2cf4d545c855bd1))
+
 ### [0.7.7](https://github.com/ecomclub/ecomplus-passport-client/compare/v0.7.6...v0.7.7) (2019-11-13)
 
 
