@@ -28,5 +28,12 @@ export default (self, url, method = 'get', data) => {
     accessToken: session.auth.token && session.auth.token.access_token,
     method,
     data
+  }).then(response => {
+    if (data && url.indexOf('/me.json') >= 0) {
+      // customer updated
+      // also update current session customer object
+      self.setCustomer(data)
+    }
+    return response
   })
 }
