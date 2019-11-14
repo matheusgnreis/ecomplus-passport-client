@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.7.10](https://github.com/ecomclub/ecomplus-passport-client/compare/v0.7.9...v0.7.10) (2019-11-14)
+
+
+### Bug Fixes
+
+* **reactive-session:** introduce session update internal event ([d31827b](https://github.com/ecomclub/ecomplus-passport-client/commit/d31827b16f22f7195e12a32ac540cec8c01e2295))
+* **set-customer:** limit customer fields to prevent excedent cookie size ([b3c1a60](https://github.com/ecomclub/ecomplus-passport-client/commit/b3c1a60fcbe80367c9162150b77667c3f0850479))
+
 ### [0.7.9](https://github.com/ecomclub/ecomplus-passport-client/compare/v0.7.8...v0.7.9) (2019-11-13)
 
 
