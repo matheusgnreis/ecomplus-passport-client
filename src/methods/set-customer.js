@@ -1,8 +1,8 @@
-import setCookie from './../lib/set-cookie'
+import updateSession from './../lib/update-session'
 
 export default (self, customer) => {
   if (typeof customer === 'object' && customer !== null && !Array.isArray(customer)) {
-    const { document, cookieName, session } = self
+    const { session } = self
     if (!session.customer) {
       session.customer = {}
     }
@@ -32,8 +32,8 @@ export default (self, customer) => {
       session.customer.orders = customer.orders.map(({ _id, number }) => ({ _id, number }))
     }
 
-    // update session cookie
-    setCookie(document, cookieName, JSON.stringify(session), 6)
+    // update session cookie and emit event
+    updateSession(self)
   } else {
     throw new Error('Customer must be an object')
   }

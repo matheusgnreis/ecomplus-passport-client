@@ -1,5 +1,5 @@
 import emitter from './../lib/emitter'
-import setCookie from './../lib/set-cookie'
+import updateSession from './../lib/update-session'
 
 export default (self, session) => {
   if (typeof session !== 'object' || session === null || Array.isArray(session)) {
@@ -7,11 +7,13 @@ export default (self, session) => {
     session = {}
   }
   self.session = session
-  const { document, cookieName, isLogged } = self
-  setCookie(document, cookieName, JSON.stringify(session), 6)
-  if (isLogged()) {
+  // update session cookie and emit event
+  updateSession(self)
+
+  if (self.isLogged()) {
     // emit login event
     emitter.emit('login', self)
   }
+
   return self
 }
