@@ -1,4 +1,3 @@
-import emitter from './../lib/emitter'
 import getCookie from './../lib/get-cookie'
 
 export default self => {
@@ -14,12 +13,6 @@ export default self => {
     }
   }
   setSession(session)
-
-  // listen to internal update session event by cookie name
-  emitter.on(`updateSession[${cookieName}]`, session => {
-    // just update instance session object
-    self.session = session
-  })
 
   // generate random 32 bytes string
   self.sessionId = ''
