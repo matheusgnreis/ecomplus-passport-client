@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.7.11](https://github.com/ecomclub/ecomplus-passport-client/compare/v0.7.10...v0.7.11) (2019-11-14)
+
+
+### Bug Fixes
+
+* **init-session:** just update instance session object on event ([9df8449](https://github.com/ecomclub/ecomplus-passport-client/commit/9df84493540e9eba7fc8088cc6ab2a944d14e1eb))
+
 ### [0.7.10](https://github.com/ecomclub/ecomplus-passport-client/compare/v0.7.9...v0.7.10) (2019-11-14)
 
 
