@@ -17,7 +17,8 @@ export default self => {
 
   // listen to internal update session event by cookie name
   emitter.on(`updateSession[${cookieName}]`, session => {
-    setSession(session)
+    // just update instance session object
+    self.session = session
   })
 
   // generate random 32 bytes string
