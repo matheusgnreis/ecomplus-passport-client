@@ -5,7 +5,7 @@ export default (self, from = 0, size = 10) => {
   const resultOrders = []
 
   // sort by order number desc
-  const sortOrdersFn = (a, b) => b.number - a.number
+  const sortOrdersFn = (a, b) => a.number > b.number ? -1 : 1
 
   ;(self.getCustomer().orders || [])
     // handle orders sorting and pagination first
