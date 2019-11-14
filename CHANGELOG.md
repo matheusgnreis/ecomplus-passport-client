@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.7.12](https://github.com/ecomclub/ecomplus-passport-client/compare/v0.7.11...v0.7.12) (2019-11-14)
+
+
+### Bug Fixes
+
+* **fetch-orders-list:** fix orders sorting ([345903b](https://github.com/ecomclub/ecomplus-passport-client/commit/345903b58acca3bed17f4901e2d04876b37c5e89))
+
 ### [0.7.11](https://github.com/ecomclub/ecomplus-passport-client/compare/v0.7.10...v0.7.11) (2019-11-14)
 
 
