@@ -5,8 +5,8 @@
   "main": "dist/ecom-passport.min.js",
   "module": "src/index.js",
   "browser": "dist/ecom-passport.min.js",
-  "jsdelivr": "dist/ecom-passport.root.min.js",
-  "unpkg": "dist/ecom-passport.root.min.js",
+  "jsdelivr": "dist/ecom-passport.var.min.js",
+  "unpkg": "dist/ecom-passport.var.min.js",
   "scripts": {
     "build": "NODE_ENV=production webpack",
     "serve": "webpack-dev-server",
