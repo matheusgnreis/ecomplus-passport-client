@@ -1,79 +1,43 @@
 /**
- * https://github.com/ecomclub/ecomplus-passport-client
+ * Handle customer authentication with E-Com Plus Passport.
+ * {@link https://github.com/ecomclub/ecomplus-passport-client GitHub}
+ *
+ * @module @ecomplus/passport-client
  * @author E-Com Club <ti@e-com.club>
- * @license MIT
+ * @return {@link ecomPassport}
+ * @see ecomPassport
+ *
+ * @example
+ * // ES import default
+ * import ecomPassport from '@ecomplus/passport-client'
+ *
+ * @example
+ * // Optional named ES import for default instance and constructor
+ * import { ecomPassport, EcomPassport } from '@ecomplus/passport-client'
+ *
+ * @example
+ * // With CommonJS
+ * const ecomPassport = require('@ecomplus/passport-client')
+ *
+ * @example
+ * <!-- Global `ecomPassport` from CDN on browser -->
+ * <script src="https://cdn.jsdelivr.net/npm/@ecomplus/passport-client/dist/ecom-passport.var.min.js"></script>
+ *
+ * @example
+ * <!-- Bundle from CDN with `ecomUtils`, `ecomClient` and `EventEmitter3` -->
+ * <script src="https://cdn.jsdelivr.net/npm/@ecomplus/passport-client/dist/ecom-passport.bundle.min.js"></script>
  */
 
-import { _config } from '@ecomplus/utils'
-import emitter from './lib/emitter'
+import EcomPassport from './constructor'
 
-import initSession from './methods/init-session'
-import setSession from './methods/set-session'
-import setCustomer from './methods/set-customer'
-import getCustomerName from './methods/get-customer-name'
-import getCustomer from './methods/get-customer'
-import fetchOauthProfile from './methods/fetch-oauth-profile'
-import fetchOauthProviders from './methods/fetch-oauth-providers'
-import fetchLogin from './methods/fetch-login'
-import fetchOrdersList from './methods/fetch-orders-list'
-import fetchOrder from './methods/fetch-order'
-import isLogged from './methods/is-logged'
-import isAuthorized from './methods/is-authorized'
-import isVerified from './methods/is-verified'
-import logout from './methods/logout'
-import popupOauthLink from './methods/popup-oauth-link'
-import popupLogin from './methods/popup-login'
-import requestApi from './methods/request-api'
+/**
+ * Default `EcomPassport` instance.
+ * @global
+ * @type EcomPassport
+ */
 
-const _lang = _config.get('lang')
-const _document = typeof window === 'object' && window.document
-const _cookie = '_ecom_passport'
+const ecomPassport = new EcomPassport()
 
-const EcomPassport = function (storeId, lang = _lang, document = _document, cookieName = _cookie) {
-  this.storeId = storeId || _config.get('store_id')
-  this.lang = lang
-  this.sessionId = ''
-  this.session = {}
-  this.cookieName = cookieName
-  this.document = document
+export default ecomPassport
 
-  // this
-  const self = this
-
-  // setters
-  this.initSession = () => initSession(self)
-  this.setSession = session => setSession(self, session)
-  this.logout = () => logout(self, document)
-  this.setCustomer = customer => setCustomer(self, customer)
-
-  // getters
-  this.getCustomerName = () => getCustomerName(self)
-  this.getCustomer = () => getCustomer(self)
-  this.isLogged = () => isLogged(self)
-  this.isAuthorized = () => isAuthorized(self)
-  this.isVerified = () => isVerified(self)
-
-  // rest api requests
-  this.fetchLogin = (email, docNumber) => fetchLogin(self, email, docNumber)
-  this.fetchOauthProfile = () => fetchOauthProfile(self)
-  this.fetchOauthProviders = () => fetchOauthProviders(self)
-  this.fetchOrdersList = (from, size) => fetchOrdersList(self, from, size)
-  this.fetchOrder = orderId => fetchOrder(self, orderId)
-  this.requestApi = (url, method, data) => requestApi(self, url, method, data)
-
-  // async open browser popup
-  this.popupOauthLink = url => popupOauthLink(self, url)
-  this.popupLogin = (enableSkip, baseUri) => popupLogin(self, enableSkip, baseUri)
-
-  // init
-  initSession(self)
-}
-
-// events emitter
-;['on', 'off', 'once'].forEach(method => {
-  EcomPassport[method] = (ev, fn) => {
-    emitter[method](ev, fn)
-  }
-})
-
-export default EcomPassport
+export { ecomPassport, EcomPassport }
