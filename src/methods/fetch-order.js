@@ -5,6 +5,8 @@ import { store } from '@ecomplus/client'
  * @name EcomPassport#fetchOrder
  * @description Fetch order by ID from Passport API (if authorized) or Store API (public).
  *
+ * @param {string} orderId - Object ID (`_id`) of the order to be fetched
+ *
  * @returns {Promise<data|error>}
  *
  * @example

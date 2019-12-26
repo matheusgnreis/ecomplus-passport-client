@@ -5,6 +5,9 @@ import { store } from '@ecomplus/client'
  * @name EcomPassport#fetchOrdersList
  * @description Fetch each order from customer's orders list.
  *
+ * @param {number} [from=0] - Offset (start from) for pagination
+ * @param {number} [size=10] - Limit of orders to fetch and list
+ *
  * @returns {Promise<orders|error>}
  *
  * @example

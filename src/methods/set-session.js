@@ -5,6 +5,9 @@ import setCookie from './../lib/set-cookie'
  * @name EcomPassport#setSession
  * @description Set session object and save to cookie.
  *
+ * @param {object} session - Passport session object
+ * @param {boolean} [canSave=true] - Save to cookie
+ *
  * @returns {self}
  *
  * @example

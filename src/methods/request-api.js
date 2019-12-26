@@ -5,6 +5,10 @@ import { passport } from '@ecomplus/client'
  * @name EcomPassport#requestApi
  * @description Send request to E-Com Plus Passport API.
  *
+ * @param {string} url - Passport API endpoint
+ * @param {string} method - Request HTTP method
+ * @param {object} [data] - Request body
+ *
  * @returns {Promise<response|error>}
  *
  * @example

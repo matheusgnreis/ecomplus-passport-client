@@ -3,6 +3,9 @@
  * @name EcomPassport#popupLogin
  * @description Open a new popup to default E-Com Plus Passport login window.
  *
+ * @param {boolean} [canSkipLogin] - Whether customer can skip login and continue as guest
+ * @param {string} [baseUri='https://passport.e-com.plus/v1/'] - Passport API base URI
+ *
  * @returns {window|null}
  *
  * @example

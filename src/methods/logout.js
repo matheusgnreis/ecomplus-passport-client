@@ -5,6 +5,8 @@ import setCookie from './../lib/set-cookie'
  * @name EcomPassport#logout
  * @description Reset session and customer account object.
  *
+ * @param {boolean} [canSave=true] - Save (reset) cookie and localStorage after logout
+ *
  * @returns {self}
  *
  * @example

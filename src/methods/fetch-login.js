@@ -5,6 +5,9 @@ import { passport } from '@ecomplus/client'
  * @name EcomPassport#fetchLogin
  * @description Try to identify/login user with email and doc number.
  *
+ * @param {string} email - Customer main email address
+ * @param {string} [docNumber] - Customer document number
+ *
  * @returns {Promise<session|error>}
  *
  * @example

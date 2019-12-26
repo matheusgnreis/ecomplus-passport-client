@@ -6,6 +6,9 @@ import createIframe from './../lib/create-iframe'
  * @name EcomPassport#fetchOauthProviders
  * @description Fetch Passport API to list OAuth providers and start social login flux.
  *
+ * @param {boolean} [canAppendIframe=true] - Whether iframe should be appended to body
+ * to start oauth flux
+ *
  * @returns {Promise<data|error>}
  *
  * @example

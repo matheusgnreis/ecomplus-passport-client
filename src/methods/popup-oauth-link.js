@@ -6,6 +6,8 @@ import createPopup from './../lib/create-popup'
  * @description Open a new popup to received URL for OAuth and
  * try to fetch profile on callback or popup closed.
  *
+ * @param {string} url - Popup URL (OAuth provider link)
+ *
  * @returns {window|null}
  *
  * @example
