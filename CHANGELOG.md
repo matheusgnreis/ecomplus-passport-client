@@ -2,6 +2,29 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.0.0](https://github.com/ecomclub/ecomplus-passport-client/compare/v0.7.13...v1.0.0) (2019-12-26)
+
+
+### ⚠ BREAKING CHANGES
+
+* **events:** edited events payload
+* **methods:** removed initSession method
+* **methods:** removed isLogged, isAuthorized, isVerified methods
+* **webpack:** root export changed
+* **exports:** changed default exported object
+* **deps:** ecomplus/utils and core-js no more direct dependencies
+
+### build
+
+* **webpack:** fix output var name to ecomPassport ([ac8e455](https://github.com/ecomclub/ecomplus-passport-client/commit/ac8e455d206837a424e62550a0e9eaaa7cc7bfa9))
+
+
+* **deps:** fix dependencies (peer) ([f654491](https://github.com/ecomclub/ecomplus-passport-client/commit/f654491e18c5835b8762a3c44fdfec000db8a42b))
+* **events:** emit login/logout without payload (remove self) ([a6fb8f4](https://github.com/ecomclub/ecomplus-passport-client/commit/a6fb8f4cbf3c03f875c30d07b91298cf0ae8b8de))
+* **exports:** returning instance by default ([70848bf](https://github.com/ecomclub/ecomplus-passport-client/commit/70848bfc57fd2ff648817d96481c8bb316f476d8))
+* **methods:** renaming boolean methods to checkAny ([4a65ef6](https://github.com/ecomclub/ecomplus-passport-client/commit/4a65ef6718c69febe7b795a96c1af05c081e888f))
+* **methods:** renaming initSession to loadStoredSession ([d6eb03e](https://github.com/ecomclub/ecomplus-passport-client/commit/d6eb03eaf2b8b54c49522ec5fd48c933ae98b03d))
+
 ### [0.7.13](https://github.com/ecomclub/ecomplus-passport-client/compare/v0.7.12...v0.7.13) (2019-11-17)
 
 ### [0.7.12](https://github.com/ecomclub/ecomplus-passport-client/compare/v0.7.11...v0.7.12) (2019-11-14)
