@@ -13,28 +13,20 @@
 </body>
 <script src="ecom-passport.min.js"></script>
 <script>
-  window.passport = new EcomPassport()
+  ecomPassport.fetchLogin(localStorage.getItem('email'), localStorage.getItem('doc_number'))
 
-  window.passport.fetchLogin('example@gmail.com', '123444444')
-
-  EcomPassport.on('logout', () => {
-    document.write('Deslougadah')
-    console.info('Deslougadah')
+  ecomPassport.on('logout', () => {
+    console.log('Logout')
   })
 
-  EcomPassport.on('login', (user) => {
-    document.write('Lougadah')
-    document.write(JSON.stringify(user))
-    console.info('Lougadah', user)
-    window.passport.fetchOrdersList()
-      .then(r => {
-        document.write('Listandoh Orders')
-        document.write(JSON.stringify(r))
-        console.info('Listandoh Orders')
-        console.table(r)
+  ecomPassport.on('login', (user) => {
+    console.log('Login', user)
+    ecomPassport.fetchOrdersList()
+      .then(orders => {
+        window.alert()
+        console.log('List orders', orders)
       })
   })
-
 </script>
 
 </html>
