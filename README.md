@@ -1,7 +1,7 @@
 # ecomplus-passport-client
 
 [![CodeFactor](https://www.codefactor.io/repository/github/ecomclub/ecomplus-passport-client/badge)](https://www.codefactor.io/repository/github/ecomclub/ecomplus-passport-client)
-[![npm version](https://img.shields.io/npm/v/@ecomplus/client.svg)](https://www.npmjs.org/@ecomplus/passport-client)
+[![npm version](https://img.shields.io/npm/v/@ecomplus/passport-client.svg)](https://www.npmjs.org/@ecomplus/passport-client)
 [![license mit](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 Handle customer authentication with E-Com Plus Passport
