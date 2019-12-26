@@ -1,32 +1,46 @@
 import { passport } from '@ecomplus/client'
 
-export default (self, url, method, data) => {
-  // ensure method is lowercased
+/**
+ * @method
+ * @name EcomPassport#requestApi
+ * @description Send request to E-Com Plus Passport API.
+ *
+ * @returns {Promise<response|error>}
+ *
+ * @example
+
+ecomPassport.requestApi('/me.json', 'patch', { orders })
+  .then(({ data }) => {
+    console.log(data)
+  })
+
+ */
+
+export default (
+  { storeId, session, checkLogin, checkAuthorization, checkVerification, setCustomer },
+  emitter,
+  [url, method, data]
+) => {
   if (method) {
     method = method.toLowerCase()
   } else {
     method = 'get'
   }
-  const { storeId, session, isLogged, isAuthorized, isVerified } = self
 
-  // check authorization level first
-  if (!isLogged()) {
+  if (!checkLogin()) {
     return Promise.reject(new Error('Unauthorized, requires login'))
   }
   if (url.endsWith('/me.json') || (method === 'get' || method === 'post')) {
-    if (!isAuthorized()) {
+    if (!checkAuthorization()) {
       return Promise.reject(new Error('Unauthorized, requires login with doc number'))
     }
-  } else if (!isVerified()) {
+  } else if (!checkVerification()) {
     return Promise.reject(new Error('Unauthorized, requires oauth login'))
   }
-
-  // fix URL with api prefix if necessary
   if (url.indexOf('api/') < 0) {
     url = '/api' + (url.charAt(0) === '/' ? url : `/${url}`)
   }
 
-  // send authenticated request to E-Com Plus Passport REST API
   return passport({
     url,
     storeId,
@@ -36,9 +50,7 @@ export default (self, url, method, data) => {
     data
   }).then(response => {
     if (url.endsWith('/me.json') && method === 'patch') {
-      // customer updated
-      // also update current session customer object
-      self.setCustomer(data)
+      setCustomer(data)
     }
     return response
   })

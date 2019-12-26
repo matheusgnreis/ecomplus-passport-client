@@ -1,14 +1,26 @@
 import { store } from '@ecomplus/client'
 
-export default (self, orderId) => {
-  const { storeId, isAuthorized, requestApi } = self
+/**
+ * @method
+ * @name EcomPassport#fetchOrder
+ * @description Fetch order by ID from Passport API (if authorized) or Store API (public).
+ *
+ * @returns {Promise<data|error>}
+ *
+ * @example
+
+ecomPassport.fetchOrder(orderId).then(order => {
+  console.log(order._id)
+})
+
+ */
+
+export default ({ storeId, checkAuthorization, requestApi }, emitter, [orderId]) => {
   const url = `/api/orders/${orderId}.json`
   let req
-  if (isAuthorized()) {
-    // with authentication
+  if (checkAuthorization()) {
     req = requestApi(url)
   } else {
-    // only public order info
     req = store({ url, storeId })
   }
   return req.then(({ data }) => data)

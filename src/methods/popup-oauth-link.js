@@ -1,18 +1,28 @@
 import createPopup from './../lib/create-popup'
 
-export default (self, url) => {
+/**
+ * @method
+ * @name EcomPassport#popupOauthLink
+ * @description Open a new popup to received URL for OAuth and
+ * try to fetch profile on callback or popup closed.
+ *
+ * @returns {window|null}
+ *
+ * @example
+
+ecomPassport.popupOauthLink(facebookOauthLink)
+
+ */
+
+export default ({ fetchOauthProfile }, emitter, [url]) => {
   let popupWatch = null
 
   const getCustomerInfo = fromCallback => {
-    // run after login
     clearInterval(popupWatch)
-    // store customer public info and authentication session
-    self.fetchOauthProfile()
+    fetchOauthProfile()
   }
 
-  // public callback function
   window.passportCallback = function () {
-    // logged
     getCustomerInfo(true)
   }
 
@@ -21,10 +31,8 @@ export default (self, url) => {
     if (typeof window === 'object' && window.focus) {
       popup.focus()
     }
-    // close fallback
     popupWatch = setInterval(() => {
       if (popup.closed) {
-        // may be logged
         getCustomerInfo(false)
       }
     }, 400)

@@ -1,12 +1,32 @@
-import emitter from './../lib/emitter'
 import setCookie from './../lib/set-cookie'
 
-export default self => {
-  // just clears current session and cookie
+/**
+ * @method
+ * @name EcomPassport#logout
+ * @description Reset session and customer account object.
+ *
+ * @returns {self}
+ *
+ * @example
+
+ecomPassport.logout()
+
+ */
+
+export default (self, emitter, [canSave = true]) => {
+  const { document, storageKey, localStorage } = self
+
   self.session = {}
-  const { document, cookieName } = self
-  setCookie(document, cookieName, '', -1)
-  // emit logou event
+  self.customer = {}
+  if (canSave && storageKey) {
+    if (document) {
+      setCookie(document, storageKey, '', -1)
+    }
+    if (localStorage) {
+      localStorage.removeItem(storageKey)
+    }
+  }
+
   emitter.emit('logout', self)
   return self
 }

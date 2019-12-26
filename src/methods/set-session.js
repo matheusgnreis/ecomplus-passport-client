@@ -1,16 +1,35 @@
-import emitter from './../lib/emitter'
 import setCookie from './../lib/set-cookie'
 
-export default (self, session) => {
+/**
+ * @method
+ * @name EcomPassport#setSession
+ * @description Set session object and save to cookie.
+ *
+ * @returns {self}
+ *
+ * @example
+
+ecomPassport.setSession(session)
+
+ */
+
+export default (self, emitter, [session, canSave = true]) => {
+  const { document, storageKey, setCustomer, checkLogin } = self
+
   if (typeof session !== 'object' || session === null || Array.isArray(session)) {
-    // session must be an object
     session = {}
+  } else if (session.customer) {
+    self.customer = {}
+    setCustomer(session.customer, canSave)
+    delete session.customer
   }
+
   self.session = session
-  const { document, cookieName, isLogged } = self
-  setCookie(document, cookieName, JSON.stringify(session), 6)
-  if (isLogged()) {
-    // emit login event
+  if (canSave) {
+    setCookie(document, storageKey, JSON.stringify(session), 6)
+  }
+
+  if (checkLogin()) {
     emitter.emit('login', self)
   }
   return self

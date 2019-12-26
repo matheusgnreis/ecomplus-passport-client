@@ -1,39 +1,24 @@
-import setCookie from './../lib/set-cookie'
+/**
+ * @method
+ * @name EcomPassport#setCustomer
+ * @description Set (assign) customer account object and save to local storage.
+ *
+ * @returns {self}
+ *
+ * @example
 
-export default (self, customer) => {
+ecomPassport.setCustomer(customer)
+
+ */
+
+export default (self, emitter, [customer, canSave = true]) => {
   if (typeof customer === 'object' && customer !== null && !Array.isArray(customer)) {
-    const { document, cookieName, session } = self
-    if (!session.customer) {
-      session.customer = {}
-    }
+    const { storageKey, localStorage } = self
 
-    // merge customer data
-    // limit customer fields to prevent excedent cookie size
-    ;[
-      '_id',
-      'oauth_providers',
-      'locale',
-      'main_email',
-      'accepts_marketing',
-      'display_name',
-      'birth_date',
-      'registry_type',
-      'gender',
-      'favorites',
-      'currency_id',
-      'currency_symbol'
-    ].forEach(field => {
-      if (customer[field] !== undefined) {
-        session.customer[field] = customer[field]
-      }
-    })
-    if (customer.orders) {
-      // reduce order objects to ID and number only
-      session.customer.orders = customer.orders.map(({ _id, number }) => ({ _id, number }))
+    Object.assign(self.customer, customer)
+    if (canSave && storageKey && localStorage) {
+      localStorage.setItem(storageKey, JSON.stringify(customer))
     }
-
-    // update session cookie
-    setCookie(document, cookieName, JSON.stringify(session), 6)
   } else {
     throw new Error('Customer must be an object')
   }
