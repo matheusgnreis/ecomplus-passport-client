@@ -33,7 +33,14 @@ export default (self, emitter, [session, canSave = true]) => {
   }
 
   if (checkLogin()) {
-    emitter.emit('login', self)
+    /**
+     * @event EcomPassport#login
+     * @example ecomPassport.on('login', () => {
+     *   console.log(ecomPassport.checkLogin()) // true
+     * })
+     */
+    emitter.emit('login')
   }
+
   return self
 }

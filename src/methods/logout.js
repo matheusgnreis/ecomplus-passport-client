@@ -29,6 +29,13 @@ export default (self, emitter, [canSave = true]) => {
     }
   }
 
-  emitter.emit('logout', self)
+  /**
+   * @event EcomPassport#logout
+   * @example ecomPassport.on('logout', () => {
+   *   console.log(ecomPassport.checkLogin()) // false
+   * })
+   */
+  emitter.emit('logout')
+
   return self
 }
