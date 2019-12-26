@@ -4,7 +4,7 @@ const devMode = process.env.NODE_ENV !== 'production'
 const path = require('path')
 
 const output = {
-  library: 'EcomPassport',
+  library: 'ecomPassport',
   libraryTarget: 'umd',
   libraryExport: 'default',
   path: path.resolve(__dirname, 'dist'),
