@@ -32,7 +32,9 @@
   },
   "homepage": "https://github.com/ecomclub/ecomplus-passport-client#readme",
   "peerDependencies": {
-    "@ecomplus/utils": "1.x",
+    "@ecomplus/utils": "1.x"
+  },
+  "optionalDependencies": {
     "core-js": "3.x"
   },
   "dependencies": {
