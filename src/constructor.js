@@ -102,21 +102,21 @@ const EcomPassport = function (
   /**
    * Customer account data following
    * {@link https://developers.e-com.plus/docs/api/#/store/customers E-Com Plus customer object model}.
-   * @memberof ecomPassport
+   * @memberof EcomPassport
    * @type {object}
    */
   ecomPassport.customer = {}
 
   /**
    * Passport authentication session object.
-   * @memberof ecomPassport
+   * @memberof EcomPassport
    * @type {object}
    */
   ecomPassport.session = {}
 
   /**
    * Passport random 32 chars session ID.
-   * @memberof ecomPassport
+   * @memberof EcomPassport
    * @type {object}
    */
   ecomPassport.sessionId = ''
