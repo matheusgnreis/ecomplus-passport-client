@@ -11,4 +11,6 @@ ecomPassport.checkVerification()
 
  */
 
-export default ({ session }) => Boolean(session.auth && session.auth.level >= 3)
+export default ({ session, checkAuthorization }) => {
+  return Boolean(checkAuthorization() && session.auth.level >= 3)
+}
