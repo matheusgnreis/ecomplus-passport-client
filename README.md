@@ -29,8 +29,8 @@ ecomPassport.on('logout', () => {
   console.log('User logged OUT')
 })
 
-ecomPassport.on('login', (user) => {
-  console.log('User logged IN', user)
+ecomPassport.on('login', () => {
+  console.log('User logged IN', ecomPassport.getCustomer())
   ecomPassport.fetchOrdersList()
     .then(orders => {
       console.log('Listing customer orders', orders)
