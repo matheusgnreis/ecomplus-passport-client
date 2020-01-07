@@ -19,8 +19,8 @@
     console.log('Logout')
   })
 
-  ecomPassport.on('login', (user) => {
-    console.log('Login', user)
+  ecomPassport.on('login', () => {
+    console.log('Login')
     ecomPassport.fetchOrdersList()
       .then(orders => {
         window.alert()
