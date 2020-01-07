@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.4](https://github.com/ecomclub/ecomplus-passport-client/compare/v1.0.3...v1.0.4) (2020-01-07)
+
+
+### Bug Fixes
+
+* **check-authorization:** make authotization dependent of login ([dd3b5fc](https://github.com/ecomclub/ecomplus-passport-client/commit/dd3b5fc040befd98ff79ef37508b794344f32bec))
+* **check-verification:** make verification dependent of authorization ([68b953b](https://github.com/ecomclub/ecomplus-passport-client/commit/68b953b6d67bbf9ef8e82aa74024ffd3d1c1411d))
+
 ### [1.0.3](https://github.com/ecomclub/ecomplus-passport-client/compare/v1.0.2...v1.0.3) (2020-01-07)
 
 ### [1.0.2](https://github.com/ecomclub/ecomplus-passport-client/compare/v1.0.1...v1.0.2) (2020-01-02)
