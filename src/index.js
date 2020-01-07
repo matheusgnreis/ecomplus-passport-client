@@ -1,3 +1,9 @@
+/*!
+ * @ecomplus/passport-client
+ * (c) E-Com Club <ti@e-com.club>
+ * Released under the MIT License.
+ */
+
 /**
  * Handle customer authentication with E-Com Plus Passport.
  * {@link https://github.com/ecomclub/ecomplus-passport-client GitHub}
