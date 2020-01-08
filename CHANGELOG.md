@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.5](https://github.com/ecomclub/ecomplus-passport-client/compare/v1.0.4...v1.0.5) (2020-01-08)
+
+
+### Bug Fixes
+
+* **set-customer:** save self.customer on localStorage ([9465a16](https://github.com/ecomclub/ecomplus-passport-client/commit/9465a16d6a1306626dd3052681548c2f20200633))
+
 ### [1.0.4](https://github.com/ecomclub/ecomplus-passport-client/compare/v1.0.3...v1.0.4) (2020-01-07)
 
 
