@@ -20,7 +20,7 @@ export default (self, emitter, [customer, canSave = true]) => {
 
     Object.assign(self.customer, customer)
     if (canSave && storageKey && localStorage) {
-      localStorage.setItem(storageKey, JSON.stringify(customer))
+      localStorage.setItem(storageKey, JSON.stringify(self.customer))
     }
   } else {
     throw new Error('Customer must be an object')
