@@ -32,14 +32,10 @@ export default (
   }
 
   if (!checkLogin()) {
-    return Promise.reject(new Error('Unauthorized, requires login'))
+    return Promise.reject(new Error('Unauthenticated, requires login'))
   }
-  if (url.endsWith('/me.json') || (method === 'get' || method === 'post')) {
-    if (!checkAuthorization()) {
-      return Promise.reject(new Error('Unauthorized, requires login with doc number'))
-    }
-  } else if (!checkVerification()) {
-    return Promise.reject(new Error('Unauthorized, requires oauth login'))
+  if (!checkAuthorization()) {
+    return Promise.reject(new Error('Unauthorized, requires login with OAuth or doc number'))
   }
   if (url.indexOf('api/') < 0) {
     url = '/api' + (url.charAt(0) === '/' ? url : `/${url}`)
