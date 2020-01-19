@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.6](https://github.com/ecomclub/ecomplus-passport-client/compare/v1.0.5...v1.0.6) (2020-01-19)
+
+
+### Bug Fixes
+
+* **request-api:** stop checking verification manually here ([02458ca](https://github.com/ecomclub/ecomplus-passport-client/commit/02458cafc495b91a6317e19d80aeb6117663443c))
+
 ### [1.0.5](https://github.com/ecomclub/ecomplus-passport-client/compare/v1.0.4...v1.0.5) (2020-01-08)
 
 
