@@ -1,22 +1,19 @@
-# ecomplus-passport-client
+# E-Com Plus Passport Client
 
-[![CodeFactor](https://www.codefactor.io/repository/github/ecomclub/ecomplus-passport-client/badge)](https://www.codefactor.io/repository/github/ecomclub/ecomplus-passport-client)
-[![npm version](https://img.shields.io/npm/v/@ecomplus/passport-client.svg)](https://www.npmjs.org/@ecomplus/passport-client)
-[![license mit](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Publish](https://github.com/ecomplus/passport-client/workflows/Publish/badge.svg)](https://github.com/ecomplus/passport-client/actions?workflow=Publish) [![CodeFactor](https://www.codefactor.io/repository/github/ecomplus/passport-client/badge)](https://www.codefactor.io/repository/github/ecomplus/passport-client) [![npm version](https://img.shields.io/npm/v/@ecomplus/passport-client.svg)](https://www.npmjs.org/@ecomplus/passport-client) [![License MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 Handle customer authentication with E-Com Plus Passport
 
-[Changelog](https://github.com/ecomclub/ecomplus-passport-client/blob/master/CHANGELOG.md)
+[CHANGELOG](https://github.com/ecomplus/passport-client/blob/master/CHANGELOG.md)
 
 ## Usage
 
-The `@ecomplus/passport-client` package can be used to handle login and
-persist/manipulate customer account data trough E-Com Plus Passport and Store APIs.
+The `@ecomplus/passport-client` package can be used to handle login and persist/manipulate customer account data trough E-Com Plus Passport and Store APIs.
 
 It's available for both Node.js and browser environments.
 
-- [Get started](http://developers.e-com.plus/ecomplus-passport-client/module-@ecomplus_passport-client.html)
-- [Class reference](http://developers.e-com.plus/ecomplus-passport-client/EcomPassport.html)
+- [Get started](http://developers.e-com.plus/passport-client/module-@ecomplus_passport-client.html)
+- [Class reference](http://developers.e-com.plus/passport-client/EcomPassport.html)
 
 ### Example
 
@@ -42,10 +39,10 @@ ecomPassport.on('login', () => {
 
 It requires and _may not_ include:
 
-- `core-js`;
-- [`eventemitter3`](https://github.com/primus/eventemitter3);
-- [`@ecomplus/utils`](https://github.com/ecomclub/ecomplus-utils);
-- [`@ecomplus/client`](https://github.com/ecomclub/ecomplus-client);
+- `core-js`
+- [`eventemitter3`](https://github.com/primus/eventemitter3)
+- [`@ecomplus/utils`](https://developers.e-com.plus/utils/)
+- [`@ecomplus/client`](https://developers.e-com.plus/client/)
 
 #### Node.js
 
@@ -65,5 +62,4 @@ npm i --save core-js @ecomplus/utils @ecomplus/passport-client
 <script src="https://cdn.jsdelivr.net/npm/@ecomplus/passport-client/dist/ecom-passport.var.min.js"></script>
 ```
 
-`EventEmitter3`, `ecomUtils` and `ecomClient` libraries **must be included separately**
-and available on window scope.
+`EventEmitter3`, `ecomUtils` and `ecomClient` libraries **must be included separately** and available on window scope.
