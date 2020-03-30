@@ -35,25 +35,20 @@ ecomPassport.on('login', () => {
 })
 ```
 
-### Dependencies
+### Installation
 
-It requires and _may not_ include:
-
-- `core-js`
-- [`eventemitter3`](https://github.com/primus/eventemitter3)
-- [`@ecomplus/utils`](https://developers.e-com.plus/utils/)
-- [`@ecomplus/client`](https://developers.e-com.plus/client/)
-
-#### Node.js
-
-```bash
-npm i --save @ecomplus/utils @ecomplus/passport-client
-```
+It _may_ require and doesn't include `core-js` (optional) and [`@ecomplus/utils`](https://developers.e-com.plus/utils/) (peer dependency).
 
 #### Webpack
 
 ```bash
 npm i --save core-js @ecomplus/utils @ecomplus/passport-client
+```
+
+#### Node.js
+
+```bash
+npm i --save @ecomplus/utils @ecomplus/passport-client
 ```
 
 #### CDN
@@ -62,4 +57,4 @@ npm i --save core-js @ecomplus/utils @ecomplus/passport-client
 <script src="https://cdn.jsdelivr.net/npm/@ecomplus/passport-client/dist/ecom-passport.var.min.js"></script>
 ```
 
-`EventEmitter3`, `ecomUtils` and `ecomClient` libraries **must be included separately** and available on window scope.
+When importing from CDN, `EventEmitter3`, `ecomUtils` and `ecomClient` libraries **must be included separately** and available on window scope.
