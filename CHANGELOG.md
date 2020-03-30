@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.7](https://github.com/ecomplus/passport-client/compare/v1.0.6...v1.0.7) (2020-03-30)
+
+
+### Bug Fixes
+
+* **iframe:** add name attr for a11y support ([#51](https://github.com/ecomplus/passport-client/issues/51)) ([86771f0](https://github.com/ecomplus/passport-client/commit/86771f096dd2deacbbf61394a2c15ef7be729b28))
+* **oauth-popup:** send 'session_uri' param to redirect if no cookie set ([66bfe81](https://github.com/ecomplus/passport-client/commit/66bfe81cca46ad1ad594a976299286820b64047f))
+
 ### [1.0.6](https://github.com/ecomclub/ecomplus-passport-client/compare/v1.0.5...v1.0.6) (2020-01-19)
 
 
