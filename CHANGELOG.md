@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.8](https://github.com/ecomplus/passport-client/compare/v1.0.7...v1.0.8) (2020-04-02)
+
+
+### Bug Fixes
+
+* **fetch-oauth-providers:** returning passport requst promise ([ba3e2e9](https://github.com/ecomplus/passport-client/commit/ba3e2e99c90ead3836fc9acbd0718e0d614a00d8))
+
 ### [1.0.7](https://github.com/ecomplus/passport-client/compare/v1.0.6...v1.0.7) (2020-03-30)
 
 
