@@ -16,7 +16,7 @@ ecomPassport.popupOauthLink(facebookOauthLink)
 
  */
 
-export default ({ fetchOauthProfile, oauthSessionUri }, emitter, [url]) => {
+export default ({ fetchOauthProfile }, emitter, [url]) => {
   let popupWatch = null
 
   const getCustomerInfo = fromCallback => {
@@ -28,7 +28,7 @@ export default ({ fetchOauthProfile, oauthSessionUri }, emitter, [url]) => {
     getCustomerInfo(true)
   }
 
-  const popup = createPopup(`${url}?session_uri=${oauthSessionUri}`)
+  const popup = createPopup(url)
   if (popup) {
     if (typeof window === 'object' && window.focus) {
       popup.focus()

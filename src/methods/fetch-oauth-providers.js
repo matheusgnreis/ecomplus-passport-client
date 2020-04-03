@@ -17,18 +17,13 @@ ecomPassport.fetchOauthProviders()
 
  */
 
-export default (self, emitter, [canAppendIframe = true]) => {
-  const { storeId, sessionId } = self
-
-  return passport({
-    url: `${sessionId}/oauth-providers.json`,
-    storeId
-  }).then(({ data }) => {
+export default ({ storeId, sessionId }, emitter, [canAppendIframe = true]) => passport({
+  url: `${sessionId}/oauth-providers.json`,
+  storeId
+}).then(({ data }) => {
+  if (canAppendIframe) {
     const { iframeUri } = data
-    if (canAppendIframe) {
-      createIframe(iframeUri)
-    }
-    self.oauthSessionUri = iframeUri
-    return data
-  })
-}
+    createIframe(iframeUri)
+  }
+  return data
+})
